@@ -1,0 +1,47 @@
+class Player:
+    def __init__(self, name, jersey_number, runs):
+        self.name = name
+        self.jersey_number = jersey_number
+        self.runs = runs
+
+    def categorize(self):
+        if self.runs >= 500:
+            return "Excellent"
+        elif self.runs >= 250:
+            return "Good"
+        else:
+            return "Average"
+
+    def display(self):
+        print("Player Name:", self.name)
+        print("Jersey Number:", self.jersey_number)
+        print("Runs:", self.runs)
+        print("Category:", self.categorize())
+        print("------------------------")
+
+
+class Team:
+    def __init__(self):
+        self.players = []
+
+    def add_player(self, player):
+        self.players.append(player)
+
+    def display_players(self):
+        print("Cricket Team Details")
+        print("========================")
+
+        for player in self.players:
+            player.display()
+
+team = Team()
+
+player1 = Player("Virat", 18, 800)
+player2 = Player("Rohit", 45, 400)
+player3 = Player("Rahul", 1, 150)
+
+team.add_player(player1)
+team.add_player(player2)
+team.add_player(player3)
+
+team.display_players()
